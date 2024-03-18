@@ -84,4 +84,7 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   # config.action_controller.raise_on_missing_callback_actions = true
+
+  # ViewComponent Previews
+  config.view_component.preview_paths << "#{Rails.root}/spec/components/previews"
 end
