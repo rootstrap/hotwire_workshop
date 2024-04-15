@@ -1,4 +1,5 @@
 import * as esbuild from 'esbuild'
+import rails from 'esbuild-rails'
 
 const config = {
   entryPoints: ['app/javascript/*.js'],
@@ -6,6 +7,7 @@ const config = {
   sourcemap: process.env.RAILS_ENV !== 'production',
   minify: process.env.RAILS_ENV === 'production',
   outdir: 'app/assets/builds',
+  plugins: [rails()],
   publicPath: '/assets'
 }
 

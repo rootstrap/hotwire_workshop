@@ -20,6 +20,8 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/core'
 require 'spec_helper'
 require 'rspec/rails'
+require 'view_component/test_helpers'
+require 'view_component/system_test_helpers'
 require 'rspec/retry'
 require 'support/retry/message_formatter'
 
@@ -34,6 +36,10 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include ActiveJob::TestHelper
+  config.include ViewComponent::TestHelpers, type: :component
+  config.include ViewComponent::SystemTestHelpers, type: :component
+  config.include Capybara::DSL, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
 

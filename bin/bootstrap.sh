@@ -76,7 +76,7 @@ file_types=("yml" "yaml" "erb" "rb" "json")
 for file_type in "${file_types[@]}"
 do
   # Find and replace the string in files of the current type
-  find . -name "*.$file_type" -type f -exec bash -c 'sed_i "s|rails_api_base|'"$project_name"'|g" "$0"' {} \;
+  find . -name "*.$file_type" -type f -exec bash -c 'sed_i "s|hotwire_workshop|'"$project_name"'|g" "$0"' {} \;
 done
 
 echo "Replacement completed successfully."
